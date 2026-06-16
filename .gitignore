@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+health_report_*.txt
+health_report_*.csv
+health_report.txt

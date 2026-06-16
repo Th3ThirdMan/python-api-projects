@@ -1,0 +1,4 @@
+GitHub API,https://api.github.com
+JsonPlaceholder Users,https://jsonplaceholder.typeicode.com/users
+Google,https://www.google.com
+Broken Test Site,https://this-does-not-exist-123456.com
