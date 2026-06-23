@@ -1,3 +1,4 @@
+from src.groups import get_groups
 from src.auth import get_token
 from src.users import get_users
 from src.exports import export_summary, export_users
@@ -6,6 +7,8 @@ from src.summary import create_summary
 token = get_token()
 
 users = get_users(token)
+
+groups = get_groups(token)
 
 count = export_users(users)
 
@@ -22,4 +25,6 @@ print(f"Percentage Licensed: {summary['percentage']}%")
 print(f"Fully Licensed Tenant: {summary['fully_licensed']}")
 print(f"Action Required: {summary['action_required']}")
 print(f"Tenant Health: {summary['tenant_health']}")
+
+print(f"Total Groups: {len(groups)}")
 
