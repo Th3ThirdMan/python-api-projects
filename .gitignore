@@ -3,3 +3,5 @@ __pycache__/
 health_report_*.txt
 health_report_*.csv
 health_report.txt
+.env
+**/.env

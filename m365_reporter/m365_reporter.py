@@ -1,3 +1,6 @@
+import os
+from dotenv import load_dotenv
+
 import csv
 import json
 import requests
@@ -13,9 +16,8 @@ def get_users(token):
     }
 
     print(f"Calling {endpoint}")
-    print("headers")
 
-    print("Sending request...")
+    print("Querying Microsoft Graph...")
 
     response = requests.get(endpoint, headers=headers)
 
@@ -32,9 +34,11 @@ def get_users(token):
 
 def get_token():
 
-    tenant_id = "43ce61cb-56d1-470e-aca5-4aa763e5280a"
-    client_id = "b30c59da-2b84-4979-a94d-b69bfd4a4040"
-    client_secret = "PASTE_SECRET_HERE"
+    load_dotenv("m365_reporter/.env")
+    
+    tenant_id = os.getenv("TENANT_ID")
+    client_id = os.getenv("CLIENT_ID")
+    client_secret = os.getenv("CLIENT_SECRET")
         
     app = ConfidentialClientApplication(
         client_id,
