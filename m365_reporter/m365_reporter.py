@@ -1,26 +1,52 @@
 import csv
+import json
+import requests
+from msal import ConfidentialClientApplication
 
-
-users = [
-    {
-        "displayName": "David Kennedy",
-        "userPrincipalName": "david@contoso.com",
-        "assignedLicenses": [{"skuId": "abc123"}]
-    },
-    {
-        "displayName": "John Smith",
-        "userPrincipalName": "john@contoso.com",
-        "assignedLicenses": []
-    },
-    {
-        "displayName": "Sarah Jones",
-        "userPrincipalName": "sarah@contoso.com",
-        "assignedLicenses": [
-            {"skuId": "xyz789"},
-            {"skuId": "abc456"}
-        ]
+    
+def get_users(token):
+    endpoint = "https://graph.microsoft.com/v1.0/users?$select=displayName,userPrincipalName,assignedLicenses"
+    
+    headers = {
+        "Authorization": f"Bearer {token['access_token']}",
+        "Content-Type": "application/json"
     }
-]
+
+    print(f"Calling {endpoint}")
+    print("headers")
+
+    print("Sending request...")
+
+    response = requests.get(endpoint, headers=headers)
+
+    data = response.json()
+
+    users = data["value"]
+
+    print("Response received")
+    print(f"Retrieved {len(users)} users")
+
+    return users    
+    
+    
+
+def get_token():
+
+    tenant_id = "43ce61cb-56d1-470e-aca5-4aa763e5280a"
+    client_id = "b30c59da-2b84-4979-a94d-b69bfd4a4040"
+    client_secret = "PASTE_SECRET_HERE"
+        
+    app = ConfidentialClientApplication(
+        client_id,
+        authority=f"https://login.microsoftonline.com/{tenant_id}",
+        client_credential=client_secret
+    )
+        
+    token = app.acquire_token_for_client(
+        scopes = ["https://graph.microsoft.com/.default"]
+    )
+    
+    return token
 
 
 def export_users(users):
@@ -80,6 +106,9 @@ def export_summary(summary):
         for key, value in summary.items():
             writer.writerow([key, value])
 
+token = get_token()
+
+users = get_users(token)
 
 count = export_users(users)
 

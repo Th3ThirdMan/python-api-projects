@@ -1,0 +1,17 @@
+[
+  {
+    "displayName": "David Kennedy",
+    "userPrincipalName": "david@contoso.com",
+    "assignedLicenses": [{ "skuId": "abc123" }]
+  },
+  {
+    "displayName": "John Smith",
+    "userPrincipalName": "john@contoso.com",
+    "assignedLicenses": []
+  },
+  {
+    "displayName": "Sarah Jones",
+    "userPrincipalName": "sarah@contoso.com",
+    "assignedLicenses": [{ "skuId": "xyz789" }, { "skuId": "abc456" }]
+  }
+]
