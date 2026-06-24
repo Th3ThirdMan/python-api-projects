@@ -17,8 +17,6 @@ def get_organization(token):
 
     data = response.json()
 
-    print(data)
-
     organization = data["value"]
 
     print(f"Retrieved {len(organization)} organization records")
