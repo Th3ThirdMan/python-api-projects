@@ -4,6 +4,8 @@ from src.users import get_users
 from src.exports import export_summary, export_users
 from src.summary import create_summary
 from src.licences import get_licences
+from src.organization import get_organization
+
 
 token = get_token()
 
@@ -12,6 +14,9 @@ users = get_users(token)
 groups = get_groups(token)
 
 licences = get_licences(token)
+
+organization = get_organization(token)
+print(organization[0]["verifiedDomains"])
 
 count = export_users(users)
 
@@ -30,4 +35,5 @@ print(f"Action Required: {summary['action_required']}")
 print(f"Tenant Health: {summary['tenant_health']}")
 print(f"Total Groups: {len(groups)}")
 print(f"Total Licences: {len(licences)}")
+print(f"Organization Records: {len(organization)}")
 
