@@ -17,8 +17,6 @@ def get_devices(token):
 
     data = response.json()
 
-    print(data)
-
     devices = data["value"]
     
     print(f"Retrieved {len(devices)} devices")

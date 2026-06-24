@@ -8,6 +8,8 @@ from src.organization import get_organization
 from src.display import print_tenant_summary
 from src.devices import get_devices
 from src.html_report import create_html_report
+from src.mailer import prepare_email_report
+from src.mailer_graph import send_mail
 
 
 
@@ -43,4 +45,9 @@ create_html_report(
     licences,
     organization,
     devices
+)
+
+send_mail(
+    token,
+    users[0]["userPrincipalName"]
 )
