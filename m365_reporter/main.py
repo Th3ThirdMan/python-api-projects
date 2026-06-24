@@ -6,6 +6,8 @@ from src.summary import create_summary
 from src.licences import get_licences
 from src.organization import get_organization
 from src.display import print_tenant_summary
+from src.devices import get_devices
+
 
 
 token = get_token()
@@ -18,6 +20,8 @@ licences = get_licences(token)
 
 organization = get_organization(token)
 
+devices = get_devices(token)
+
 count = export_users(users)
 
 summary = create_summary(count, len(users), users)
@@ -28,5 +32,6 @@ print_tenant_summary(
     summary,
     groups,
     licences,
-    organization
+    organization,
+    devices
 )

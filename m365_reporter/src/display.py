@@ -1,6 +1,6 @@
 
 
-def print_tenant_summary(summary, groups, licences, organization):
+def print_tenant_summary(summary, groups, licences, organization, devices):
     org = organization[0]
     domain = org["verifiedDomains"][0]
     
@@ -37,3 +37,8 @@ def print_tenant_summary(summary, groups, licences, organization):
     print("Health")
     print("======")
     print(summary["tenant_health"])
+        
+    print()
+    print("Devices")
+    print("=======")
+    print(f"Total      : {len(devices)}")
