@@ -7,6 +7,7 @@ from src.licences import get_licences
 from src.organization import get_organization
 from src.display import print_tenant_summary
 from src.devices import get_devices
+from src.html_report import create_html_report
 
 
 
@@ -29,6 +30,14 @@ summary = create_summary(count, len(users), users)
 export_summary(summary)
 
 print_tenant_summary(
+    summary,
+    groups,
+    licences,
+    organization,
+    devices
+)
+
+create_html_report(
     summary,
     groups,
     licences,
