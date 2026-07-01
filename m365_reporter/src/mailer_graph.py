@@ -21,7 +21,7 @@ def send_mail(token, user, html_path):
             "toRecipients": [
                 {
                     "emailAddress": {
-                        "address": "davidgkennedymail@gmail.com"
+                        "address": "DavidKennedy@kennedycloudapp.onmicrosoft.com"
                     }
                 }
             ]
@@ -35,4 +35,3 @@ def send_mail(token, user, html_path):
     )
     
     print(response.status_code)
-    print(response.text)
