@@ -1,9 +1,38 @@
 import requests
 
 
-def send_mail(token, user):
+def send_mail(token, user, html_path):
+    with open(html_path, "r", encoding="utf-8") as f:
+        html = f.read()
     endpoint = f"https://graph.microsoft.com/v1.0/users/{user}/sendMail"
 
-    print(endpoint)
+    headers = {
+        "Authorization": f"Bearer {token['access_token']}",
+        "Content-Type": "application/json"
+    }
 
-    return endpoint
+    email = {
+        "message": {
+            "subject": "M365 Tenant Report",
+            "body": {
+                "contentType": "HTML",
+                "content": html
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "address": "davidgkennedymail@gmail.com"
+                    }
+                }
+            ]
+        }
+    }
+    
+    response = requests.post(
+        endpoint,
+        headers=headers,
+        json=email
+    )
+    
+    print(response.status_code)
+    print(response.text)

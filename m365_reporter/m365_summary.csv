@@ -1,9 +1,9 @@
 Metric,Value
-licensed,0
+licensed,1
 total,1
-unlicensed,1
-percentage,0.0
-fully_licensed,False
-action_required,True
-average_licences_per_user,0.0
-tenant_health,Needs Attention
+unlicensed,0
+percentage,100.0
+fully_licensed,True
+action_required,False
+average_licences_per_user,1.0
+tenant_health,Good
