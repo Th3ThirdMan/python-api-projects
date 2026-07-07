@@ -1,3 +1,5 @@
 .env
 __pycache__/
-reports/
+*.pyc
+reports/*.csv
+reports/*.html
