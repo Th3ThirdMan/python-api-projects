@@ -1,41 +1,91 @@
-# Microsoft 365 User Reporter
+# Microsoft 365 Group Reporter
 
-## Overview
+A Python application that connects to Microsoft Graph using OAuth 2.0 (Client Credentials Flow) to retrieve Microsoft 365 group information. The application exports the results to CSV, generates an HTML report, and emails the report using Microsoft Graph.
 
-A Python application that connects to Microsoft Graph to retrieve Microsoft 365 users, export them to CSV, generate an HTML report, and email the report using Microsoft Graph.
+---
 
 ## Features
 
-- Microsoft Graph authentication (MSAL)
-- Retrieve Microsoft 365 users
-- Console summary
-- CSV export
-- HTML report generation
-- Email reports using Microsoft Graph
+- Authenticate with Microsoft Entra ID using MSAL
+- Retrieve Microsoft 365 groups from Microsoft Graph
+- Display group information in the terminal
+- Export group data to CSV
+- Generate an HTML report
+- Send the HTML report via Microsoft Graph
 
-## Technologies
+---
 
-- Python
+## Technologies Used
+
+- Python 3
 - Microsoft Graph API
+- Microsoft Entra ID
 - MSAL
 - Requests
-- python-dotenv
+- HTML
+- CSV
+
+---
 
 ## Project Structure
 
-main.py
-src/
-reports/
+```text
+m365_group_reporter/
+├── reports/
+├── src/
+│   ├── auth.py
+│   ├── groups.py
+│   ├── display.py
+│   ├── exports.py
+│   ├── html_report.py
+│   └── mailer_graph.py
+├── main.py
+├── requirements.txt
+└── README.md
+```
 
-## How to Run
+---
 
-1. Clone the repository
-2. Install requirements
-3. Create a `.env`
-4. Run `python3 main.py`
+## Workflow
+
+1. Authenticate with Microsoft Entra ID.
+2. Request group information from Microsoft Graph.
+3. Parse the JSON response.
+4. Display the groups in the terminal.
+5. Export the data to a CSV file.
+6. Generate an HTML report.
+7. Email the report using Microsoft Graph.
+
+---
+
+## Skills Demonstrated
+
+- OAuth 2.0 Client Credentials Flow
+- Microsoft Graph API integration
+- REST API development
+- JSON parsing
+- Modular Python programming
+- CSV report generation
+- HTML report generation
+- Email automation with Microsoft Graph
+
+---
 
 ## Example Output
 
-- users.csv
-- users.html
-- Email report
+The application produces:
+
+- Terminal summary of Microsoft 365 groups
+- CSV report (`groups.csv`)
+- HTML report (`groups.html`)
+- HTML email sent using Microsoft Graph
+
+---
+
+## Future Improvements
+
+- Filter groups by type
+- Include group owners and members
+- Export to Excel
+- Add CSS styling to the HTML report
+- Schedule automated report generation
