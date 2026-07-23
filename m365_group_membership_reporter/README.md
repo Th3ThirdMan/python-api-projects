@@ -66,7 +66,7 @@ m365_group_membership_reporter/
 
 ### Terminal Output
 
-![Terminal Output](images/terminal.png)
+![Terminal Output](images/members_terminal.png)
 
 ### HTML Report
 
@@ -74,7 +74,7 @@ m365_group_membership_reporter/
 
 ### Email Report
 
-![Email Report](images/email_report.png)
+![Email Report](images/members_email.png)
 
 ## Skills Demonstrated
 
