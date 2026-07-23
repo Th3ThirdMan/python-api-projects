@@ -58,6 +58,18 @@ m365_group_reporter/
 
 ---
 
+## Terminal Output
+
+![Terminal Output](images/terminal.png)
+
+### HTML Report
+
+![HTML Report](images/groups_html.png)
+
+### Email Report
+
+![Email Report](images/email_report.png)
+
 ## Skills Demonstrated
 
 - OAuth 2.0 Client Credentials Flow
